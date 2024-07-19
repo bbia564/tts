@@ -36,16 +36,6 @@ class MineSetttingsView extends GetView<MineSetttingsController> {
                       ),
                     ),
                     10.verticalSpace,
-                    CMContainer(
-                      radius: 10.w,
-                      height: 54.h,
-                      color: CMColorTools.cmColor("#1E2227"),
-                      alignment: Alignment.centerLeft,
-                      padding: EdgeInsets.only(left: 16.w),
-                      child: CMText("Privacy",
-                          fontWeight: FontWeight.w400, textColor: Colors.white),
-                    ),
-                    10.verticalSpace,
                     InkWell(
                       onTap: controller.showVersionAleart,
                       child: CMContainer(
