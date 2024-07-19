@@ -1,0 +1,21 @@
+workflows:
+  flutter-workflow:
+    name: Flutter Workflow
+    environment:
+      flutter: stable
+    scripts:
+      - name: Increment build number
+        script: |
+          #!/bin/bash
+          BUILD_NAME=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
+          BUILD_NUMBER=${BUILD_NAME##*+}
+          NEW_BUILD_NUMBER=$((BUILD_NUMBER + 1))
+          NEW_BUILD_NAME="${BUILD_NAME%+*}+$NEW_BUILD_NUMBER"
+          echo "New build name: $NEW_BUILD_NAME"
+          
+          sed -i '' "s/version: .*/version: $NEW_BUILD_NAME/" pubspec.yaml
+
+
+          plutil -replace CFBundleVersion -string "$NEW_BUILD_NUMBER" ios/Runner/Info.plist
+      - name: Build iOS
+        script: flutter build ios --release --no-codesign
