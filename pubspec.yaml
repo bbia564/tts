@@ -36,12 +36,12 @@ dev_dependencies:
     sdk: flutter
 
 flutter_launcher_icons:
-  image_path: "assets/images/playstore.png"
+  image_path: "assets/images/sfi.png"
   android: true
   ios: true
   web:
     generate: true
-    image_path: "assets/images/playstore.png"
+    image_path: "assets/images/sfi.png"
     background_color: "#dfec65"
     theme_color: "#dfec65"
 
